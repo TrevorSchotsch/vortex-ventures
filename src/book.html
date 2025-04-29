@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <title>Vortex Ventures</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+    <body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+        <a href="index.html" aria-label="Home">
+            <img src="../assets/vortex-name.png" alt="Vortex Ventures" class="logo-image" />
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="book.html" class="active">Book a Trip</a></li>
+
+            <!-- Shown only when logged out -->
+            <li id="login-register-links" class="hidden">
+            <a href="account.html">Log In / Register</a>
+            </li>
+
+            <!-- Shown only when logged in -->
+            <li class="account-dropdown hidden" id="account-dropdown-link">
+            <a href="account.html">Account ▾</a>
+            <div class="dropdown-content" id="account-dropdown">
+                <!-- Filled in JS -->
+            </div>
+            </li>
+        </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="trip-list">
+        <h1>Browse Timelines</h1>
+        <div class="trip-grid">
+            <!-- Trip Card 1 -->
+            <div class="trip-card available">
+            <img src="../assets/magic.png" alt="Magical Cityscape" class="trip-card-img" onclick="openLightbox(this.src)" />
+            <div class="trip-info">
+                <h2>E93: Where Magic Replaced Machines</h2>
+                <p class="description">
+                Step into Velstrand, a metropolis powered by spellcraft. Visit elemental energy farms, explore the arcane transit grid, and experience how this world replaced industry with incantation.
+                </p>
+            </div>
+            <div class="trip-meta">
+                <button class="book-btn">Book Trip</button>
+                <p class="price">$12,000</p>
+                <p class="duration">Duration: 5–10 days</p>
+            </div>
+            </div>
+
+            <!-- Trip Card 2 -->
+            <div class="trip-card available">
+            <img src="../assets/vault-world.png" alt="Vault in Desert" class="trip-card-img" onclick="openLightbox(this.src)" />
+            <div class="trip-info">
+                <h2>W13: The Vault Awakens</h2>
+                <p class="description">
+                An ancient structure awaits in the wastelands of a forgotten moon. Danger? Riches? Something in between? There’s only one way to find out.
+                </p>
+            </div>
+            <p class="risk">Risk Level: Unpredictable. Bring friends. Or don’t.</p>
+            <div class="trip-meta">
+                <button class="book-btn">Book Trip</button>
+                <p class="price">$???</p>
+                <p class="duration">Duration: 1–??? days</p>
+            </div>
+            </div>
+
+            <!-- Trip Card 3 -->
+            <div class="trip-card available">
+            <img src="../assets/artifact.jpeg" alt="Ancient Temple Dig Site" class="trip-card-img" onclick="openLightbox(this.src)" />
+            <div class="trip-info">
+                <h2>A07: Unearth Wonders From Ages Unknown</h2>
+                <p class="description">
+                Discover relics of an impossible civilization using gravity-defying extraction tech and expert guides. Ancient mystery, modern luxury.
+                </p>
+            </div>
+            <div class="trip-meta">
+                <button class="book-btn">Book Trip</button>
+                <p class="price">$14,500</p>
+                <p class="duration">Duration: 6–9 days</p>
+            </div>
+            </div>
+
+            <!-- Trip Card 4 -->
+            <div class="trip-card available">
+            <img src="../assets/cthulu.jpeg" alt="Eldritch Coastline" class="trip-card-img" onclick="openLightbox(this.src)" />
+            <div class="trip-info">
+                <h2>G99: Uncharted Territory</h2>
+                <p class="description">
+                Explore a warped world of deep-sea deities, flickering dimensions, and impossible coastlines—now stabilized for public access.
+                </p>
+            </div>
+            <p class="risk">Risk Level: Elevated. Sanity insurance included.</p>
+            <div class="trip-meta">
+                <button class="book-btn">Book Trip</button>
+                <p class="price">$19,000</p>
+                <p class="duration">Duration: 4–6 days</p>
+            </div>
+            </div>
+
+            <!-- Trip Card 5 -->
+            <div class="trip-card available">
+            <img src="../assets/dinosaurs.jpg" alt="Dinosaur Safari" class="trip-card-img" onclick="openLightbox(this.src)" />
+            <div class="trip-info">
+                <h2>J63: Prehistoric Adventure</h2>
+                <p class="description">
+                Live among dinosaurs with expert protection teams. See towering beasts and feel the thrill of true prehistory—no fences, just awe.
+                </p>
+            </div>
+            <div class="trip-meta">
+                <button class="book-btn">Book Trip</button>
+                <p class="price">$11,200</p>
+                <p class="duration">Duration: 3–8 days</p>
+            </div>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="image-lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-image-wrapper">
+        <img src="" alt="Full view" />
+        <button class="close-lightbox" onclick="closeLightbox()">×</button>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="booking-modal">
+        <div class="booking-modal-content">
+        <button class="close-booking-modal" onclick="closeBookingModal()">×</button>
+        <h2 id="modal-title">Trip Title</h2>
+        <p id="modal-description">Trip Description</p>
+        <p id="modal-price" class="price"></p>
+        <p id="modal-duration" class="duration"></p>
+        <form id="booking-form">
+            <label for="booking-date">Start Date:</label>
+            <input type="date" id="booking-date" required />
+
+            <label for="party-size">Party Size:</label>
+            <input type="number" id="party-size" min="1" max="10" required />
+
+            <label for="special-notes">Special Notes:</label>
+            <textarea id="special-notes" rows="3" placeholder="Optional..."></textarea>
+
+            <button type="submit" class="book-btn">Confirm Booking</button>
+        </form>
+        </div>
+    </div>
+
+    <!-- Custom Alert -->
+    <div id="custom-alert" class="custom-alert">
+        <div class="custom-alert-box">
+        <p id="custom-alert-message"></p>
+        <button onclick="closeCustomAlert()" class="book-btn">OK</button>
+        </div>
+    </div>
+    </body>
+</html>

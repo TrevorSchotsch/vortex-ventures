@@ -1,0 +1,646 @@
+/* ========== Base Reset ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.hero {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #111;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a {
+  color: #0078D4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Header & Navbar ========== */
+header {
+  background-color: #F5F5F5;
+  padding: 0.5rem 0;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+nav:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: white;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 2px #fff;
+}
+
+nav:hover .nav-links a {
+  color: #000;
+}
+
+.logo-image {
+  height: 50px;
+  z-index: 20; 
+  position: relative;
+  filter: brightness(1000%) invert(1);
+}
+
+nav:hover .logo-image {
+  filter: brightness(0);
+}
+
+/* ========== Carousel ========== */
+.carousel,
+[data-slides] {
+  height: 100%;
+  position: relative;
+}
+
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.carousel-button:hover {
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button:focus {
+  outline: none;
+  color: #0078D4; /* optional focus glow color */
+  text-shadow: 0 0 4px rgba(0, 120, 212, 0.4);
+}
+
+.carousel-button.prev {
+  left: 1rem;
+}
+
+.carousel-button.next {
+  right: 1rem;
+}
+
+/* Carousel Slides */
+[data-slides] {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ========== Caption Box ========== */
+.caption-box {
+  position: absolute;
+  bottom: 2rem;
+  left: 5%;
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: white; /* default text color */
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  opacity: 0.6;
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+.caption-box:hover {
+  opacity: 1;
+  background-color: white;
+  color: black; /* on hover, flip to black text */
+}
+
+.caption-box .book-btn {
+  color: white; /* Force the book button text to remain white */
+}
+
+/* Always visible on mobile (no hover) */
+@media (max-width: 768px) {
+  .caption-box {
+    opacity: 0.9;
+  }
+}
+
+/* Ensure all children inherit this color smoothly */
+.caption-box h3,
+.caption-box p,
+.caption-box a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.slide[data-active] .caption-box {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ========== Buttons ========== */
+.book-btn {
+  margin-top: 0.75rem;
+  display: inline-block;
+  background-color: #0078D4;
+  color: white; 
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.book-btn:hover {
+  background-color: #005a9e;
+}
+
+/* ========== About Section ========== */
+
+.about-section {
+  padding: 6rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+.about-content p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.25rem;
+}
+
+
+/* ========== Booking Page ========== */
+
+.trip-list {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.trip-list h1 {
+  font-size: 2.75rem;
+  margin-bottom: 2rem;
+  color: #111;
+}
+
+.trip-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.trip-card {
+  /* shared stuff like border-radius, box-shadow, background, etc */
+  border-radius: 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
+}
+
+.trip-card.available {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1.5rem;
+  background-color: #f5f5f5;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.trip-card.available.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trip-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+.trip-card.booked {
+  padding: 1.25rem 2.5rem 1.25rem 1.25rem;
+  background-color: #f4f4f4;
+  text-align: left;
+  position: relative;
+}
+
+.trip-card-img {
+  width: 400px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trip-card-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.trip-card h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+  color: #1a1a1a;
+}
+
+.trip-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 600px; /* optional: gives control over when the text wraps */
+}
+
+.trip-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  min-width: 160px;
+  text-align: right;
+}
+
+.price {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0078D4;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.risk {
+  font-size: 0.875rem;
+  color: #c62828;
+}
+
+.trip-card .book-btn {
+  align-self: start;
+  background-color: #0078D4;
+  color: white;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.trip-meta .book-btn {
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.trip-card .book-btn:hover {
+  background-color: #005a9e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.trip-card,
+.trip-card * {
+  transition: all 0.25s ease;
+}
+
+/* Lightbox overlay */
+.image-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox-image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.image-lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 1rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 0.5rem;
+  right: -2.5rem; /* move the button just outside the image */
+  font-size: 1.75rem;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.close-lightbox:hover {
+  color: #ccc;
+}
+
+.login-prompt-popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+  text-align: center;
+  z-index: 9999;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.login-prompt-popup a {
+  color: #0078D4;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.login-prompt-popup .close-popup {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+
+.account-container {
+  max-width: 500px;
+  margin: 7rem auto 4rem auto;
+  padding: 2rem;
+  background: #fafafa;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.account-container h2 {
+  margin: 1.5rem 0 1rem;
+  font-size: 1.5rem;
+}
+
+.account-container input,
+.account-container button {
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border-radius: 0.375rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.account-container button {
+  background-color: #0078D4;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.account-container button:hover {
+  background-color: #005a9e;
+}
+
+.account-dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  z-index: 20;
+  min-width: 160px;
+  text-align: left;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+.account-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.booking-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.booking-modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.booking-modal-content h2 {
+  margin-bottom: 0.5rem;
+}
+
+.booking-modal-content label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.booking-modal-content input,
+.booking-modal-content textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+}
+
+.booking-modal-content button[type="submit"] {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.close-booking-modal {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ========== Custom Alert ========== */
+.custom-alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.custom-alert-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.custom-alert-box p {
+  font-size: 1rem;
+  color: #111;
+  margin-bottom: 1.5rem;
+  white-space: pre-line;
+}
+
+
+.hidden {
+  display: none;
+}

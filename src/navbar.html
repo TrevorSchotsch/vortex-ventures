@@ -1,0 +1,21 @@
+<nav>
+    <a href="index.html" aria-label="Home">
+        <img src="../assets/vortex-name.png" alt="Vortex Ventures" class="logo-image">
+    </a>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="book.html" class="active">Book a Trip</a></li>
+
+        <!-- Shown only when logged out -->
+        <li id="login-register-links" class="hidden">
+            <a href="account.html">Log In / Register</a>
+        </li>
+
+        <!-- Shown only when logged in -->
+        <li class="account-dropdown hidden" id="account-dropdown-link">
+            <a href="account.html">Account ▾</a>
+            <div class="dropdown-content" id="account-dropdown">
+                <!-- Filled in JS -->
+            </div>
+        </li>
+    </ul>
+</nav>

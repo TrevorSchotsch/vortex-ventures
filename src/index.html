@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <title>Vortex Ventures</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <!-- Hero Section (Navbar + Carousel Fullscreen) -->
+    <main>
+        <section class="hero">
+            <nav>
+                <a href="index.html" aria-label="Home">
+                    <img src="../assets/vortex-name.png" alt="Vortex Ventures" class="logo-image">
+                </a>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="book.html" class="active">Book a Trip</a></li>
+
+                    <!-- Shown only when logged out -->
+                    <li id="login-register-links" class="hidden">
+                        <a href="account.html">Log In / Register</a>
+                    </li>
+
+                    <!-- Shown only when logged in -->
+                    <li class="account-dropdown" id="account-dropdown-link" class="hidden">
+                        <a href="account.html">Account ▾</a>
+                        <div class="dropdown-content" id="account-dropdown">
+                            <!-- Filled in JS -->
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="carousel" data-carousel>
+                <button class="carousel-button prev" data-carousel-button="prev">‹</button>
+                <button class="carousel-button next" data-carousel-button="next">›</button>
+                <ul data-slides>
+                    <li class="slide" data-active>
+                        <img src="../assets/artifact.jpeg" alt="Ancient artifact">
+                        <div class="caption-box">
+                            <h3>Unearth Wonders From Ages Unknown</h3>
+                            <p>What was once legend is now a fully guided experience.</p>
+                            <a href="book.html?trip=artifact" class="book-btn">Book Now</a>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <img src="../assets/cthulu.jpeg" alt="Cthulhu encounter">
+                        <div class="caption-box">
+                            <h3>Venture Where Maps Go Blank</h3>
+                            <p>We’ve charted it, tested it, and made it guest-ready. Some realities are too intriguing to ignore.</p>
+                            <a href="book.html?trip=cthulu" class="book-btn">Book Now</a>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <img src="../assets/dinosaurs.jpg" alt="Dinosaur scene">
+                        <div class="caption-box">
+                            <h3>Back. Way Back.</h3>
+                            <p>Experience the sights, sounds, and scale of a world untouched by modern hands.</p>
+                            <a href="book.html?trip=dinosaurs" class="book-btn">Book Now</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <h2>Welcome to Vortex Ventures</h2>
+                <p>
+                    We specialize in curated travel beyond time and dimension. From stabilized prehistory to 
+                    fully-guided alternate realities, every journey is designed for comfort, safety, and unforgettable discovery.
+                </p>
+                <p>
+                    Whether you're seeking the thrill of ancient exploration or the calm of a serene alternate reality, 
+                    Vortex Ventures brings the extraordinary within reach.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
