@@ -201,7 +201,7 @@ if (document.querySelector("[data-carousel]")) {
                 setLoggedInUser(username);
     
                 // Redirect
-                const returnTo = localStorage.getItem("returnTo") || "index.html";
+                const returnTo = localStorage.getItem("returnTo") || "../index.html";
                 localStorage.removeItem("returnTo");
                 window.location.href = returnTo;
             }
@@ -220,7 +220,7 @@ if (document.querySelector("[data-carousel]")) {
                 setLoggedInUser(username);
             
                 // Redirect back to previous page or index
-                const returnTo = localStorage.getItem("returnTo") || "index.html";
+                const returnTo = localStorage.getItem("returnTo") || "../index.html";
                 localStorage.removeItem("returnTo"); // Clean up
                 window.location.href = returnTo;
             } else {
