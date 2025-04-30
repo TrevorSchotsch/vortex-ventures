@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer></script>
+    <script src="src/script.js" defer></script>
     <title>Vortex Ventures</title>
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <!-- Hero Section (Navbar + Carousel Fullscreen) -->
@@ -13,19 +13,19 @@
         <section class="hero">
             <nav>
                 <a href="index.html" aria-label="Home">
-                    <img src="../assets/vortex-name.png" alt="Vortex Ventures" class="logo-image">
+                    <img src="assets/vortex-name.png" alt="Vortex Ventures" class="logo-image">
                 </a>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="book.html" class="active">Book a Trip</a></li>
+                    <li><a href="src/book.html" class="active">Book a Trip</a></li>
 
                     <!-- Shown only when logged out -->
                     <li id="login-register-links" class="hidden">
-                        <a href="account.html">Log In / Register</a>
+                        <a href="src/account.html">Log In / Register</a>
                     </li>
 
                     <!-- Shown only when logged in -->
                     <li class="account-dropdown" id="account-dropdown-link" class="hidden">
-                        <a href="account.html">Account ▾</a>
+                        <a href="src/account.html">Account ▾</a>
                         <div class="dropdown-content" id="account-dropdown">
                             <!-- Filled in JS -->
                         </div>
@@ -38,27 +38,27 @@
                 <button class="carousel-button next" data-carousel-button="next">›</button>
                 <ul data-slides>
                     <li class="slide" data-active>
-                        <img src="../assets/artifact.jpeg" alt="Ancient artifact">
+                        <img src="assets/artifact.jpeg" alt="Ancient artifact">
                         <div class="caption-box">
                             <h3>Unearth Wonders From Ages Unknown</h3>
                             <p>What was once legend is now a fully guided experience.</p>
-                            <a href="book.html?trip=artifact" class="book-btn">Book Now</a>
+                            <a href="src/book.html?trip=artifact" class="book-btn">Book Now</a>
                         </div>
                     </li>
                     <li class="slide">
-                        <img src="../assets/cthulu.jpeg" alt="Cthulhu encounter">
+                        <img src="assets/cthulu.jpeg" alt="Cthulhu encounter">
                         <div class="caption-box">
                             <h3>Venture Where Maps Go Blank</h3>
                             <p>We’ve charted it, tested it, and made it guest-ready. Some realities are too intriguing to ignore.</p>
-                            <a href="book.html?trip=cthulu" class="book-btn">Book Now</a>
+                            <a href="src/book.html?trip=cthulu" class="book-btn">Book Now</a>
                         </div>
                     </li>
                     <li class="slide">
-                        <img src="../assets/dinosaurs.jpg" alt="Dinosaur scene">
+                        <img src="assets/dinosaurs.jpg" alt="Dinosaur scene">
                         <div class="caption-box">
                             <h3>Back. Way Back.</h3>
                             <p>Experience the sights, sounds, and scale of a world untouched by modern hands.</p>
-                            <a href="book.html?trip=dinosaurs" class="book-btn">Book Now</a>
+                            <a href="src/book.html?trip=dinosaurs" class="book-btn">Book Now</a>
                         </div>
                     </li>
                 </ul>
