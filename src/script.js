@@ -45,10 +45,10 @@ function updateUI() {
         if (accountDropdownLink) accountDropdownLink.style.display = "block";
         if (accountDropdown) {
             accountDropdown.innerHTML = `
-                <a href="account.html">Account Settings</a>
-                <a href="trips.html">My Trips</a>
-                <a href="#" id="dropdown-logout">Sign Out</a>
-            `;
+            <a href="src/account.html">Account Settings</a>
+            <a href="src/trips.html">My Trips</a>
+            <a href="#" id="dropdown-logout">Sign Out</a>
+        `;
             setTimeout(() => {
                 document.getElementById("dropdown-logout")?.addEventListener("click", function (e) {
                     e.preventDefault();
